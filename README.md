@@ -1,24 +1,18 @@
 # Maze-Runner 
 Traversing through a maze using Java 
 
-Finding the start and the end of the maze.
+The first line of the maze file is the number of rows and columns.
 
-Checking all the directions in order to move forward
+Finding the start and the end of the maze. The start and end of the maze are represented with the characters '+' and '-' respectively.
 
-Backtracking in case of a dead-end 
+Checking all the directions of the current position in order to move forward. The program moves through the maze, the current path is also marked with the '+' character. 
 
-Recursively traversing by checking 
+Backtracking in case of a dead-end. Any path leading to a dead end is marked with the '.' character.
 
-The start and end of the maze are represented with the characters + and -, respectively. 
+Recursively traversing the maze.
 
-The first line of the maze file will be the number of rows and columns, respectively.
+Upon reaching the end of the maze the program prints a message to the screen stating that the maze was solved.
 
-program moves through the maze the current path should also be marked with the + character. 
+If the program does not find the exit, it prints the same as a message.
 
-Any path leading to a dead end should be marked with the . character.
-
-Upon reaching the end of the maze your program should print a message to the screen stating that the maze was solved.
-
-If your program does not find the exit this should also be stated.
-
-All messages, and a print out of the solution, if one is found, should be to the screen.
+All messages, and a print out of the solution, if one is found, is printed on the screen.
