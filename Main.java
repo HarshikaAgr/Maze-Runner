@@ -1,4 +1,4 @@
-//CS PROJECT 1- MAZE TRAVERSAL
+//TRAVERSING A MAZE
 
 
 import java.util.Scanner;
@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 
 
 public class Main {
-
 
     private static char[][] maze;
     private static int row;
@@ -23,7 +22,7 @@ public class Main {
             column = scan.nextInt();
             scan.nextLine();
 
-            //read maze
+            //read the maze
             maze = new char[row][column];
 
             for (int i = 0; i < row; i++) {
@@ -37,7 +36,7 @@ public class Main {
                 }
             }
 
-            //find start and solve
+            //find the start of the maze and solve
             int[] start = findStart();
             if (start[0] == -1) {
                 System.out.println("No start position'+' found in the maze.");
@@ -52,13 +51,14 @@ public class Main {
             //print maze after solving
             printMaze();
 
-        } catch (FileNotFoundException e) {
+        } //catch an exception in case the file is not found 
+            catch (FileNotFoundException e) {
             System.out.println("Maze File not found: " + file);
         }
 
     }
 
-    //find start
+    //find the start of the maze
     public static int[] findStart(){
         for (int i = 0; i < maze.length; i++){ //i<row
             for (int j = 0; j < maze[i].length; j++){ //j<column
@@ -70,18 +70,20 @@ public class Main {
         return new int[]{-1, -1}; //if no start found
     }
 
-    // check move is correct
+    // check if the move is correct
     public static boolean validMove(char[][] maze, int x, int y) {
         return x >= 0 && x < row && y >= 0 && y < column && (maze[x][y] == ' ' || maze[x][y] == '-');
     }
 
-    // solve maze
+    // solve the maze
     public static boolean solveMaze(int row, int column){
 
         if (maze[row][column] == '-') {
             //System.out.println("Maze solved!");
             return true;
         }
+        
+        //
         maze[row][column] = '+';
 
         int[] rowDirections = {-1, 1, 0, 0}; // up down
@@ -89,7 +91,7 @@ public class Main {
 
         for (int i = 0; i < 4; i++) {
             int newRow = row + rowDirections[i]; // Move in new row direction
-            int newCol = column + colDirections[i];
+            int newCol = column + colDirections[i]; // Move in new column direction 
 
 
             if (validMove(maze, newRow, newCol)) {
@@ -103,7 +105,7 @@ public class Main {
         return false;
     }
 
-    // print maze
+    // print the maze
     public static void printMaze(){
 
         for (int i = 0; i < row; i++) {
@@ -113,5 +115,5 @@ public class Main {
             System.out.println();
         }
     }
-
+    
 }
